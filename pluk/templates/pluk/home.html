@@ -1,0 +1,51 @@
+{% extends 'pluk/base.html' %}
+
+{% block title %}
+Требуха
+{% endblock %}
+
+
+
+{% block content %}
+    <h1>Заглянем унутрь</h1>
+
+    <img src="/static/pluk/images/tim.jpg" class="img-responsive" alt="Отзывчивое изображение в Bootstrap">
+
+
+
+    {% if user.is_authenticated %}
+<h4>Привет {{ user.username }}!</h4>
+{% else %}
+<h4>Хотите оставлять комментарии тогда зарегистрируйтесь и войдите</h4>
+{% endif %}
+
+
+    {% if user.is_authenticated %}
+<a href="/pluk/restricted/">Вы вошли</a><br />
+<a href="/pluk/logout/">
+     <button type="button" class="btn btn-succes btn-md">
+        <span class="glyphicon glyphicon-log-out"style="color:black;"></span> Выход
+    </button>
+</a><br />
+{% else %}
+
+<a href="/pluk/login/">
+     <button type="button" class="btn btn-succes btn-md">
+        <span class="glyphicon glyphicon-log-in"style="color:black;"></span> Вход
+    </button>
+</a><br />
+{% endif %}
+
+
+
+
+
+    {% for article in articles %}
+        <h2><a href="{% url 'article' article.id %}">{{ article.title }}</a></h2>
+        <div class="date">{{ article.created_date }}</div>
+        <pre>{% autoescape off %}{{ article.get_short_text }}{% endautoescape %}</pre>
+        <a href="{% url 'article' article.id %}">Комментарий: {{ article.comments.count }}</a>
+
+    {% endfor %}
+
+{% endblock %}

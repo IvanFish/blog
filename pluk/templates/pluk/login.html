@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Никому не надоело каждый раз вводить заголовок??? -->
+        <title>Вход</title>
+    </head>
+
+    <body>
+        <h1>Войти в блог</h1>
+
+        <form id="login_form" method="post" action="/pluk/login/">
+            {% csrf_token %}
+            Логин: <input type="text" name="username" value="" size="50" />
+            <br />
+            Пароль: <input type="password" name="password" value="" size="50" />
+            <br />
+
+            <input type="submit" value="Отправить" />
+        </form>
+
+    </body>
+</html>

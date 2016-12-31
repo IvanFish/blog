@@ -1,0 +1,9 @@
+{% extends 'pluk/base.html' %}
+
+{% block content %}
+    <h3>Новый комментарий</h3>
+    <form method="POST" class="article-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">OK</button>
+    </form>
+{% endblock %}

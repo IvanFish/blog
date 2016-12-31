@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pluk</title>
+    </head>
+
+    <body>
+        <h1>Регистрация</h1>
+
+        {% if registered %}
+         <strong>Спасибо за регистрацию</strong>
+        <a href="/">На главную</a><br />
+        {% else %}
+         <strong>Регистрироваться здесь</strong><br />
+
+        <form id="user_form" method="post" action="/pluk/register/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <!-- Выводим на экран каждую форму. Метод as_p помещает каждый элемент в абзац (тег <p>). Это гарантирует, что каждый элемент появится на новой строке, улучшая внешний вид формы. -->
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+
+            <!-- Создаем кнопку для отправления данных формы. -->
+            <input type="submit" name="submit" value="Регистрация" />
+        </form>
+        {% endif %}
+    </body>
+</html>
