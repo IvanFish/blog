@@ -4,7 +4,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="16">
+          <list size="47">
             <item index="0" class="java.lang.String" itemvalue="python-dateutil" />
             <item index="1" class="java.lang.String" itemvalue="SQLAlchemy" />
             <item index="2" class="java.lang.String" itemvalue="South" />
@@ -21,6 +21,37 @@
             <item index="13" class="java.lang.String" itemvalue="python-openid" />
             <item index="14" class="java.lang.String" itemvalue="unicodecsv" />
             <item index="15" class="java.lang.String" itemvalue="Pillow" />
+            <item index="16" class="java.lang.String" itemvalue="django-ckeditor" />
+            <item index="17" class="java.lang.String" itemvalue="html5lib" />
+            <item index="18" class="java.lang.String" itemvalue="networkx" />
+            <item index="19" class="java.lang.String" itemvalue="djangocms-style" />
+            <item index="20" class="java.lang.String" itemvalue="cloudpickle" />
+            <item index="21" class="java.lang.String" itemvalue="djangocms-teaser" />
+            <item index="22" class="java.lang.String" itemvalue="py" />
+            <item index="23" class="java.lang.String" itemvalue="django-disqus" />
+            <item index="24" class="java.lang.String" itemvalue="numpy" />
+            <item index="25" class="java.lang.String" itemvalue="djangocms-flash" />
+            <item index="26" class="java.lang.String" itemvalue="djangocms-text-ckeditor" />
+            <item index="27" class="java.lang.String" itemvalue="contextlib2" />
+            <item index="28" class="java.lang.String" itemvalue="pyOpenSSL" />
+            <item index="29" class="java.lang.String" itemvalue="pkginfo" />
+            <item index="30" class="java.lang.String" itemvalue="prompt-toolkit" />
+            <item index="31" class="java.lang.String" itemvalue="treebeard" />
+            <item index="32" class="java.lang.String" itemvalue="Flask" />
+            <item index="33" class="java.lang.String" itemvalue="django-sekizai" />
+            <item index="34" class="java.lang.String" itemvalue="clyent" />
+            <item index="35" class="java.lang.String" itemvalue="scipy" />
+            <item index="36" class="java.lang.String" itemvalue="dj-database-url" />
+            <item index="37" class="java.lang.String" itemvalue="djangocms-video" />
+            <item index="38" class="java.lang.String" itemvalue="cryptography" />
+            <item index="39" class="java.lang.String" itemvalue="imagesize" />
+            <item index="40" class="java.lang.String" itemvalue="django-cms" />
+            <item index="41" class="java.lang.String" itemvalue="easy-thumbnails" />
+            <item index="42" class="java.lang.String" itemvalue="djangocms-link" />
+            <item index="43" class="java.lang.String" itemvalue="psutil" />
+            <item index="44" class="java.lang.String" itemvalue="djangocms-picture" />
+            <item index="45" class="java.lang.String" itemvalue="matplotlib" />
+            <item index="46" class="java.lang.String" itemvalue="djangocms-inherit" />
           </list>
         </value>
       </option>
