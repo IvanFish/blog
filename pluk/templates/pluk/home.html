@@ -44,8 +44,10 @@
         <h2><a href="{% url 'article' article.id %}">{{ article.title }}</a></h2>
         <div class="date">{{ article.created_date }}</div>
         <pre>{% autoescape off %}{{ article.get_short_text }}{% endautoescape %}</pre>
-        <a href="{% url 'article' article.id %}">Комментарий: {{ article.comments.count }}</a>
+        <a href="{% url 'article' article.id %}">Комментариев: {{ article.comments.count }}</a>
 
     {% endfor %}
 
 {% endblock %}
+
+        

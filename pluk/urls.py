@@ -12,5 +12,7 @@ urlpatterns = [
     url(r'^pluk/login/$', views.user_login, name='login'),
     url(r'^pluk/restricted/', views.restricted, name='restricted'),
     url(r'^pluk/logout/$', views.user_logout, name='logout'),
+    url(r'^article/(?P<article_id>\d+)/addlike/$', views.add_like, name='add_like'),
+    url(r'^article/(?P<article_id>\d+)/adddislike/$', views.add_dislike, name='add_dislike'),
 
 ]

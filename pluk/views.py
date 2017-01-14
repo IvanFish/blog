@@ -1,9 +1,11 @@
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect
-from pluk.models import Article
+from django.shortcuts import render, get_object_or_404, redirect, RequestContext
+from pluk.models import Article, UserLikes
 from .forms import CommentForm, ArticleForm, UserForm, UserProfileForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import auth
+from django.core.exceptions import ObjectDoesNotExist
 
 
 
@@ -151,3 +153,34 @@ def user_logout(request):
 
     # Перенаправляем пользователя обратно на главную страницу.
     return HttpResponseRedirect('/')
+    
+# здесь вьюхи лайков
+    
+    
+def add_like(request, article_id):
+    try:
+        article = get_object_or_404(Article, id=article_id)
+        user = auth.get_user(request)
+        if user.is_authenticated():
+            user_likes = UserLikes.objects.filter(user_id=user.id, article_id=article.id)
+            if user_likes.count() == 0:
+                article.likes += 1
+                article.save()
+                UserLikes(user=user, article=article, like=True).save()
+        return redirect('article', article.id)
+    except ObjectDoesNotExist:
+        return Http404    
+        
+def add_dislike(request, article_id):
+    try:
+        article = get_object_or_404(Article, id=article_id)
+        user = auth.get_user(request)
+        if user.is_authenticated():
+            user_likes = UserLikes.objects.filter(user_id = user.id, article_id = article.id)
+            if user_likes.count() == 0:
+                article.dislikes += 1
+                article.save()
+                UserLikes(user=user, article=article, dislike=True).save()
+        return redirect('article', article.id)
+    except ObjectDoesNotExist:
+        return Http404

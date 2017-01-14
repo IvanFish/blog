@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@25n9lf7y%yt4=bdv31%1h*tt6184#3f*=f@dun&@05m0)co&v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['timocat.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition

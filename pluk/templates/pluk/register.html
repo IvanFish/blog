@@ -1,17 +1,25 @@
+{% extends "pluk/base.html" %}
+
+{% block content %}
+
 <!DOCTYPE html>
+
+
+
 <html>
     <head>
         <title>Pluk</title>
     </head>
 
     <body>
-        <h1>Регистрация</h1>
+        
 
         {% if registered %}
          <strong>Спасибо за регистрацию</strong>
-        <a href="/">На главную</a><br />
+        
+         <a href="/pluk/login/">  Теперь можно войти</a><br />
         {% else %}
-         <strong>Регистрироваться здесь</strong><br />
+         <strong>Заполните форму регистрации</strong><br />
 
         <form id="user_form" method="post" action="/pluk/register/"
                 enctype="multipart/form-data">
@@ -28,3 +36,4 @@
         {% endif %}
     </body>
 </html>
+{% endblock %}

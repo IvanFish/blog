@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 import django.utils
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.conf import settings
+
 
 
 
@@ -12,6 +14,8 @@ class Article (models.Model):
     created_date = models.DateTimeField(default=django.utils.timezone.now)
     #text = models.TextField()
     text = RichTextUploadingField(blank=True, default='')
+    likes = models.IntegerField(verbose_name='Нравится', default=0)
+    dislikes = models.IntegerField(verbose_name='Не нравится', default=0)
 
     user = models.ForeignKey(User)
 
@@ -49,6 +53,24 @@ class UserProfile(models.Model):
     # Переопределяем метод __unicode__(), чтобы вернуть что-либо значимое! Используйте __str__() в Python 3.*
     def __str__(self):
         return self.user.username
+        
+        
+class UserLikes(models.Model):
+    class Meta:
+        db_table = 'app_blog_user_likes'
+        verbose_name = 'оценку пользователя'
+        verbose_name_plural = 'Оценки пользователей'
+    UserModel = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
+    user = models.ForeignKey(UserModel, verbose_name="Пользователь")
+    article = models.ForeignKey(Article, verbose_name="Статья")
+    like = models.BooleanField(verbose_name="Нравится", default=False)
+    dislike = models.BooleanField(verbose_name="Не нравится", default=False)
+    
+    def __str__(self):
+        return self.user.username
+
+
+
 
 
 
