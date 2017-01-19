@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'pluk',
     'ckeditor',
     'ckeditor_uploader',
+    'bootstrap3',
 ]
 
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
@@ -149,8 +150,11 @@ CKEDITOR_CONFIGS = {
     }
 
 
-#STATICFILES_DIRS = (
-#    STATIC_PATH,
-#)
-
+# Настройки почтового сервера
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ivankaraseff@gmail.com'
+EMAIL_HOST_PASSWORD = 'fisher17198'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = 'ivankaraseff@gmail.com'
 

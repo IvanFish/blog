@@ -1,6 +1,12 @@
 {% extends "pluk/base.html" %}
 
+
+
+
 {% block content %}
+
+
+
 
 <!DOCTYPE html>
 
@@ -19,8 +25,18 @@
         
          <a href="/pluk/login/">  Теперь можно войти</a><br />
         {% else %}
-         <strong>Заполните форму регистрации</strong><br />
+        
+        
+        <div class="panel panel-success">
+        <div class="panel-heading">
+        <h2 class="panel-title">Панель регистрации</h2>
+        </div>
+        <div class="panel-body">
+        <div class="well well-lg">
+        <h3></h3>
 
+        
+         
         <form id="user_form" method="post" action="/pluk/register/"
                 enctype="multipart/form-data">
 
@@ -31,9 +47,14 @@
             {{ profile_form.as_p }}
 
             <!-- Создаем кнопку для отправления данных формы. -->
-            <input type="submit" name="submit" value="Регистрация" />
+            <br>
+	        <input type="submit" class="btn btn-success" value="Зарегистрироваться"/>
+
         </form>
         {% endif %}
     </body>
 </html>
+</div>
+</div>
+</div>
 {% endblock %}

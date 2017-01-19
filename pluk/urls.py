@@ -14,5 +14,7 @@ urlpatterns = [
     url(r'^pluk/logout/$', views.user_logout, name='logout'),
     url(r'^article/(?P<article_id>\d+)/addlike/$', views.add_like, name='add_like'),
     url(r'^article/(?P<article_id>\d+)/adddislike/$', views.add_dislike, name='add_dislike'),
+    url(r'^contact/$', views.contactform, name='contact'),
+    url(r'^thanks/$', views.thanks, name='thanks'),
 
 ]

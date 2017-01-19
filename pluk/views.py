@@ -1,11 +1,12 @@
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect, RequestContext
+from django.shortcuts import render, get_object_or_404, redirect
 from pluk.models import Article, UserLikes
-from .forms import CommentForm, ArticleForm, UserForm, UserProfileForm
+from .forms import CommentForm, ArticleForm, UserForm, UserProfileForm, ContactForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import send_mail,  BadHeaderError
 
 
 
@@ -184,3 +185,34 @@ def add_dislike(request, article_id):
         return redirect('article', article.id)
     except ObjectDoesNotExist:
         return Http404
+        
+# Функция формы обратной связи
+def contactform(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        # Если форма заполнена корректно, сохраняем все введённые пользователем значения
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            sender = form.cleaned_data['sender']
+            message = form.cleaned_data['message']
+            copy = form.cleaned_data['copy']
+
+            recepients = ['ivankaraseff@gmail.com']
+            # Если пользователь захотел получить копию себе, добавляем его в список получателей
+            if copy:
+                recepients.append(sender)
+            try:
+                send_mail(subject, message, 'ivankaraseff@gmail.com', recepients)
+            except BadHeaderError: #Защита от уязвимости
+                return HttpResponse('Invalid header found')
+            # Переходим на другую страницу, если сообщение отправлено
+            return HttpResponseRedirect('/thanks')
+
+    else:
+        form = ContactForm()
+    # Выводим форму в шаблон
+    return render(request, 'contact.html', {'form': form, 'username': auth.get_user(request).username})
+    
+def thanks(request):
+    thanks = 'thanks'
+    return render(request, 'thanks.html', {'thanks': thanks})
