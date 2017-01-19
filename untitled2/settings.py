@@ -152,9 +152,9 @@ CKEDITOR_CONFIGS = {
 
 # Настройки почтового сервера
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'ivankaraseff@gmail.com'
-EMAIL_HOST_PASSWORD = 'fisher17198'
+EMAIL_HOST_USER = 'xxxxxxxxxxxxx'
+EMAIL_HOST_PASSWORD = 'xxxxxxxxxxxx'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = 'ivankaraseff@gmail.com'
+DEFAULT_FROM_EMAIL = 'xxxxxxxxxxxxxxx'
 
